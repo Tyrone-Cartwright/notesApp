@@ -15,6 +15,16 @@
 
 
 <script>
+    (function getNotes(){
+        let noteApp = getExistingAppNotes()
+        let notesAppArray = Object.values(noteApp)
+        let orderedList = document.getElementById('notes-list')
+        notesAppArray.forEach(note => {
+        let listNoteItem = document.createElement('li')
+        listNoteItem.innerHTML = note
+        orderedList.appendChild(listNoteItem)
+    })
+})()
 
 
 </script>

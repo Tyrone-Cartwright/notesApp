@@ -21,6 +21,16 @@
 var textElement = document.getElementById("note")
 
 function saveNote() {
-    
+    if(textElement.value == "") {
+        return alert('text field is empty....')
+    }
+    const id = getNoteAppId()
+    let noteAppObject = getExistingAppNotes()
+    if(!noteAppObject) {
+        noteAppObject = {}
+    }
+    noteAppObject[id] = textElement.value
+    localStorage.setItem('notes', JSON.stringify(noteAppObject))
+    alert('New Note Saved Successfully!')    
 }
 </script>
